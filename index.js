@@ -7,6 +7,8 @@ app.use( express.json() );
 app.use( express.urlencoded( { extended: true } ) );
 app.use( cors( { origin: `http://localhost:${ process.env.PORT }` } ) );
 
+require( "./app/routes" )( app );
+
 app.get( "/", ( request, response ) => response.send( "Test" ) );
 
 app.listen( process.env.PORT, () => console.log( `Listening: process.env.PORT ${ process.env.PORT }` ) );
